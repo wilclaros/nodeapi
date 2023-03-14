@@ -1,0 +1,19 @@
+version: "3"
+services:
+  apiweb:
+    build:
+      context: ./webmain
+      dockerfile: Dockerfile
+    container_name: apiweb
+    restart: always
+    ports:
+     - "4000:4000"
+    networks:
+      proxy:
+    # volumes:
+    #   - ./app:/app
+networks:
+  proxy:
+    name: core_proxy
+    driver: bridge
+
